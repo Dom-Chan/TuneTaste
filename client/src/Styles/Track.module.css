@@ -1,0 +1,82 @@
+.track {
+  display: flex;
+  color: white;
+  /* justify-content: space-between; */
+  padding: 10px;
+}
+
+.track:hover {
+  display: flex;
+  color: white;
+  background-color: rgb(49, 45, 45);
+  cursor: default;
+  border-radius: 3px;
+  
+}
+
+.track_names_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+img {
+  height: 41px;
+  width: 41px;
+}
+
+.track_name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 200px;
+  max-width: 400px;
+  margin-right: 30px;
+  margin-bottom: 0px;
+}
+
+.track_name:hover {
+  overflow: visible;
+}
+
+.track_artist {
+  color: rgb(209, 185, 185);
+  font-size: small;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 400px;
+  margin-right: 30px;
+  margin-top: 0px;
+}
+
+.reviewButton_sm {
+  display: flex;
+  background: rgb(11, 10, 10);
+  color: rgb(49, 45, 45);
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  width: 16px;
+  height: 16px;
+  align-self: center;
+}
+
+.reviewButton_sm:hover {
+  display: flex;
+  background-color: rgb(75, 145, 125);
+  color: white;
+  padding: 5px 5px;
+  margin: 0;
+  align-items: center;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  transform: scale(1.1);
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}

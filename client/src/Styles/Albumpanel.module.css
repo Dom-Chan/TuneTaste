@@ -1,0 +1,8 @@
+.albumpanel {
+    background: rgb(11, 10, 10);
+    display: inline-flex;
+    padding: 15px;
+    height: max-content;
+    flex-wrap: wrap;
+    padding-left: 0px;
+}

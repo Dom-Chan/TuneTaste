@@ -1,0 +1,70 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(20, 19, 19);
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 20px;
+  padding: 15px;
+  height: 235px;
+  width: 155px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+
+
+.card:hover {
+  background-color: rgb(53, 49, 49);
+  cursor: pointer;
+}
+
+.card_img {
+  width: 160px;
+  height: 160px;
+  /* border-radius: 2px; */
+  align-self: center;
+  box-shadow: rgba(75, 145, 125, 0.07) 0px 1px 1px, rgba(75, 145, 125, 0.07) 0px 2px 2px, rgba(75, 145, 125, 0.07) 0px 4px 4px, rgba(75, 145, 125, 0.07) 0px 8px 8px, rgba(75, 145, 125, 0.07) 0px 16px 16px;
+}
+
+.card_img_default {
+  display: flex;
+  width: 160px;
+  height: 160px;
+  align-self: center;
+  box-shadow: rgba(75, 145, 125, 0.07) 0px 1px 1px, rgba(75, 145, 125, 0.07) 0px 2px 2px, rgba(75, 145, 125, 0.07) 0px 4px 4px, rgba(75, 145, 125, 0.07) 0px 8px 8px, rgba(75, 145, 125, 0.07) 0px 16px 16px;
+  font-size: xx-large;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.card_artist_img {
+  width: 160px;
+  height: 160px;
+  /* border-radius: 100px; */
+  align-self: center;
+  box-shadow: rgba(75, 145, 125, 0.07) 0px 1px 1px, rgba(75, 145, 125, 0.07) 0px 2px 2px, rgba(75, 145, 125, 0.07) 0px 4px 4px, rgba(75, 145, 125, 0.07) 0px 8px 8px, rgba(75, 145, 125, 0.07) 0px 16px 16px;
+}
+.card_title {
+  margin-bottom: 0;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.card_description {
+  font-size: smaller;
+  color: rgb(90, 87, 87);
+  margin-top: 2px;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+Link {
+  text-decoration: white;
+}

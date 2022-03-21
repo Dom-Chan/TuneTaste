@@ -1,0 +1,9 @@
+.contentpanel {
+    background: rgb(11, 10, 10);
+    display: flex; 
+    padding: 15px;
+    width: auto;
+    height: max-content;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}

@@ -1,0 +1,85 @@
+.sidepanel {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  font-weight: bold;
+  min-width: max-content;
+  height: 100vh;
+  border: 3px;
+  box-sizing: border-box;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+
+.userprofile {
+  display: flex;
+  background-color: rgb(75, 145, 125);
+  /* background-color: rgb(205, 245, 100); */
+  /* background-color: #191414; */
+  border-radius: 60px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-bottom: 30px;
+  margin-top: 15px;
+  max-width: max-content;
+}
+
+.userphoto {
+  width: 30px;
+  height: 30px;
+  border-radius: 60px;
+  margin: 5px;
+}
+
+.username {
+  margin: 5px;
+  color: white;
+  margin-right: 15px;
+}
+
+.sidepanel_item {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  color: rgb(189, 175, 175);
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+.sidepanel_item_active {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: medium;
+  margin-bottom: 10px;
+}
+
+.sidepanel_item:hover {
+  /* color: rgb(255, 123, 25); */
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.logo_div{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 50px;
+}
+
+.logo {
+  height: 24.6px;
+  width: 82px;
+  
+}

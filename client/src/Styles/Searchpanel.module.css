@@ -1,0 +1,67 @@
+.searchpanel {
+  background: rgb(11, 10, 10);
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: auto;
+  height: max-content;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.navpanel {
+  display: flex;
+  margin-bottom: 10px;
+  /* position: -webkit-sticky;
+    position: sticky;
+    top: 30px;
+    background: rgb(11, 10, 10); */
+}
+
+.search {
+  width: 400px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  padding-left: 40px;
+  font-size: 14px;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.playlist_results {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.artist2_results {
+  display: flex;
+  flex-wrap: wrap;
+}
+.artist_tag {
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  margin: 0;
+}
+
+.artist_results {
+  /* width: 50%; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+}
+
+.track_results {
+  /* width: 50%; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-right: 85px;
+}
