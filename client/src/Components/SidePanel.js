@@ -59,13 +59,13 @@ function SidePanel() {
       </div>
 
       <Link to="/home" style={linkStyle}>
-        <SidePanelButton button_value={"Home"} />
+        <SidePanelButton button_value={"Home"} panel="sidepanel"/>
       </Link>
       <Link to="/search" style={linkStyle}>
-        <SidePanelButton button_value={"Search"} />
+        <SidePanelButton button_value={"Search"} panel="sidepanel"/>
       </Link>
       <Link to="/library/playlists" style={linkStyle}>
-        <SidePanelButton button_value={"Library"} />
+        <SidePanelButton button_value={"Library"} panel="sidepanel"/>
       </Link>
 
       <div className={styles.logo_div}>
@@ -77,6 +77,3 @@ function SidePanel() {
 
 export default SidePanel;
 
-//
-
-// className={isActive === "home" ? styles.sidepanel_item_active : styles.sidepanel_item} onClick={setIsActive("home")}

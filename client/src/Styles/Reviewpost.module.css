@@ -53,7 +53,6 @@
   background-color: black;
   border-radius: 15px;
   padding: 0px 10px;
-  
 }
 
 .image {
@@ -64,7 +63,25 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.card_img_default {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  align-self: flex-start;
+  margin: 30px 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: xx-large;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 .image:hover {
+  box-shadow: rgba(185, 183, 183, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+
+.card_img_default:hover {
   box-shadow: rgba(185, 183, 183, 0.35) 0px 5px 15px;
   cursor: pointer;
 }
@@ -77,7 +94,6 @@
   align-items: center;
   color: gray;
 }
-  
 
 .review {
   align-self: flex-start;
@@ -92,7 +108,6 @@
   margin-bottom: 20px;
   background-color: rgb(46, 42, 42);
 }
-
 
 .cancel_button_wrapper {
   align-self: flex-end;
@@ -113,7 +128,6 @@
 .logo {
   height: 24.6px;
   width: 82px;
-  
 }
 
 .userphoto {

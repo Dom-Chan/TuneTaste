@@ -1,0 +1,23 @@
+.bottompanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  border: 3px;
+  box-sizing: border-box;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0px;
+  margin-bottom: 0;
+}
+
+.botbutton {
+  margin: 0;
+}
+
+.link {
+  height: 26px;
+  width: 26px;
+  color: white;
+}

@@ -10,10 +10,14 @@ body,html {
 
 .page {
   display: flex;
-  /* background-color: rgb(75, 145, 125); */
   background: rgb(11, 10, 10);
   width:auto;
   min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {

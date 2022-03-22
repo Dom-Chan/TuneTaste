@@ -3,9 +3,13 @@ import useProps from "../Context/PropContex";
 import styles from "../Styles/Reviewpost.module.css";
 import ReviewButton from "./ReviewButton";
 import ReviewModal from "./ReviewModal";
-import { ImCancelCircle } from "react-icons/im";
 import { deleteReview } from "../API/Reviews";
 import logo from "../Images/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Green.png";
+import { IoMusicalNotesSharp } from "react-icons/io5";
+import { BsFillPersonFill } from "react-icons/bs";
+import { MdAlbum } from "react-icons/md";
+import { ImCancelCircle } from "react-icons/im";
+import { MdAudiotrack } from "react-icons/md";
 
 function ReviewPost({ review }) {
   const { access_token, device, country, isNavlinkActive_value, setPlaying } =
@@ -188,12 +192,27 @@ function ReviewPost({ review }) {
             </div>
           )}
           <div className={styles.title_wrapper} title="PLAY ON SPOTIFY">
-            <img
-              className={styles.image}
-              src={photoUri}
-              alt=""
-              onClick={play}
-            ></img>
+            {photoUri.length > 0 ? (
+              <img
+                className={styles.image}
+                src={photoUri}
+                alt=""
+                onClick={play}
+              ></img>
+            ) : (
+              <div className={styles.card_img_default}>
+                {review.reviewType === "Playlist" ? (
+                  <IoMusicalNotesSharp />
+                ) : review.reviewType === "Artist" ? (
+                  <BsFillPersonFill />
+                ) : review.reviewType === "Album" ? (
+                  <MdAlbum />
+                ) : review.reviewType === "Track" ? (
+                  <MdAudiotrack />
+                ) : null}
+              </div>
+            )}
+
             <div className={styles.secondary_wrapper}>
               <img src={logo} className={styles.logo}></img>
               <p className={styles.title}>{review.itemTitle}</p>
@@ -215,8 +234,11 @@ function ReviewPost({ review }) {
           <p className={styles.review}>
             {updatedPost.length > 0 ? updatedPost : review.review}
           </p>
-          
-          <p className={styles.name}><img src={userPhoto} className={styles.userphoto}></img>{review.creator}</p>
+
+          <p className={styles.name}>
+            <img src={userPhoto} className={styles.userphoto}></img>
+            {review.creator}
+          </p>
           {isNavlinkActive_value === "Reviews" && (
             <ReviewButton button_value="Review" openModal={openModal} />
           )}

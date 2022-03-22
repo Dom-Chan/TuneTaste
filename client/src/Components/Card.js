@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "../Styles/Card.module.css";
 import { IoMusicalNotesSharp } from "react-icons/io5";
+import { BsFillPersonFill } from "react-icons/bs";
+import { MdAlbum } from "react-icons/md";
+import { ImCancelCircle } from "react-icons/im";
+import { MdAudiotrack } from "react-icons/md";
 
 export default function Card({ type, card_value }) {
   const album = "Album";
@@ -14,18 +18,27 @@ export default function Card({ type, card_value }) {
 
   return (
     <div className={styles.card}>
-      {(type !== "track" && card_value.images !== undefined && card_value.images.length > 0) ? (
+      {type !== "track" &&
+      card_value.images !== undefined &&
+      card_value.images.length > 0 ? (
         <img
           className={
             type === "artist" ? styles.card_artist_img : styles.card_img
           }
-          src={(card_value.images.length > 0) ? card_value.images[0].url : null}
+          src={card_value.images.length > 0 ? card_value.images[0].url : null}
           alt=""
         ></img>
       ) : (
-        
         <div className={styles.card_img_default}>
-          <IoMusicalNotesSharp />
+          {type === "playlist" ? (
+            <IoMusicalNotesSharp />
+          ) : type === "artist" ? (
+            <BsFillPersonFill />
+          ) : type === "album" ? (
+            <MdAlbum />
+          ) : type === "track" ? (
+            <MdAudiotrack />
+          ) : null}
         </div>
       )}
       <p className={styles.card_title}>{card_value.name}</p>
