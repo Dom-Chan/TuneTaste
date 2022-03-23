@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import styles from "../Styles/Bottompanel.module.css";
+import styles from "../Styles/Toppanel.module.css";
 import SidePanelButton from "./SidePanelButton";
 import useProps from "../Context/PropContex";
 import { Link } from "react-router-dom";
 
-function BottomPanel() {
+function TopPanel() {
   const {
     access_token,
     setUser,
@@ -47,7 +47,7 @@ function BottomPanel() {
   }, [access_token]);
 
   return (
-    <div className={styles.bottompanel}>
+    <div className={styles.toppanel}>
       <Link to="/home" className={styles.link}>
         <SidePanelButton button_value={"Home"} className={styles.botbutton}/>
       </Link>
@@ -61,4 +61,4 @@ function BottomPanel() {
   );
 }
 
-export default BottomPanel;
+export default TopPanel;

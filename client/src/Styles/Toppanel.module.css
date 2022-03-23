@@ -1,15 +1,16 @@
-.bottompanel {
+.toppanel {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  background-color: blue;
+  background-color: rgb(11, 10, 10);
   color: white;
   border: 3px;
   box-sizing: border-box;
   position: -webkit-sticky;
   position: sticky;
-  bottom: 0px;
-  margin-bottom: 0;
+  top: 0px;
+  height: 35px;
+  box-shadow: rgba(185, 183, 183, 0.1) 0px 10px 10px -10px;
 }
 
 .botbutton {

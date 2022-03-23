@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Styles/Sidepanel.module.css";
-import styles2 from "../Styles/Bottompanel.module.css";
+import styles2 from "../Styles/Toppanel.module.css";
 import { MdHome } from "react-icons/md";
 import { MdSearch } from "react-icons/md";
 import { MdLibraryMusic } from "react-icons/md";
