@@ -80,3 +80,27 @@ img {
   width: 14px;
   height: 14px;
 }
+
+
+@media (max-width: 768px){
+  .track_name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 200px;
+    max-width: 260px;
+    margin-right: 30px;
+    margin-bottom: 0px;
+  }
+
+  .track_artist {
+    color: rgb(209, 185, 185);
+    font-size: small;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 260px;
+    margin-right: 30px;
+    margin-top: 0px;
+  }
+}

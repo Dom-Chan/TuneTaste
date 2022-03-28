@@ -101,7 +101,7 @@ function ReviewPost({ review }) {
         headers: { Authorization: "Bearer " + access_token },
       }).then((res) => {
         if (res.status === 404) {
-          window.alert("OPEN SPOTIFY");
+          window.alert("OPEN SPOTIFY and refresh page");
         }
       });
     }
@@ -117,7 +117,7 @@ function ReviewPost({ review }) {
         },
       }).then((res) => {
         if (res.status === 404) {
-          window.alert("OPEN SPOTIFY");
+          window.alert("OPEN SPOTIFY and refresh page");
         }
       });
     }
@@ -149,7 +149,7 @@ function ReviewPost({ review }) {
             })
             .then((res) => {
               if (res.status === 404) {
-                window.alert("OPEN SPOTIFY");
+                window.alert("OPEN SPOTIFY and refresh page");
               }
             });
         })
@@ -168,7 +168,7 @@ function ReviewPost({ review }) {
         headers: { Authorization: "Bearer " + access_token },
       }).then((res) => {
         if (res.status === 404) {
-          window.alert("OPEN SPOTIFY");
+          window.alert("OPEN SPOTIFY and refresh page");
         }
       });
     }
