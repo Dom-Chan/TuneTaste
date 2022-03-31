@@ -12,8 +12,14 @@ import { ImCancelCircle } from "react-icons/im";
 import { MdAudiotrack } from "react-icons/md";
 
 function ReviewPost({ review }) {
-  const { access_token, device, country, isNavlinkActive_value, setPlaying } =
-    useProps();
+  const {
+    access_token,
+    device,
+    country,
+    isNavlinkActive_value,
+    setPlaying,
+    subscription,
+  } = useProps();
   const [playlist, setPlaylist] = useState([]);
   const [album, setAlbum] = useState([]);
   const [photoUri, setPhotoUri] = useState("");
@@ -89,89 +95,94 @@ function ReviewPost({ review }) {
     setShowModal(true);
   };
   const play = () => {
-    //play first track in a playlist
-    if (review.reviewType === "Playlist") {
-      setPlaying(playlist.tracks.items[0].track.id);
-      fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          context_uri: `spotify:playlist:${playlist.id}`,
-          offset: { uri: playlist.tracks.items[0].track.uri },
-        }),
-        headers: { Authorization: "Bearer " + access_token },
-      }).then((res) => {
-        if (res.status === 404) {
-          window.alert("OPEN SPOTIFY and refresh page");
-        }
-      });
-    }
+    if (subscription === "premium") {
+      //play first track in a playlist
+      if (review.reviewType === "Playlist") {
+        setPlaying(playlist.tracks.items[0].track.id);
+        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device}`, {
+          method: "PUT",
+          body: JSON.stringify({
+            context_uri: `spotify:playlist:${playlist.id}`,
+            offset: { uri: playlist.tracks.items[0].track.uri },
+          }),
+          headers: { Authorization: "Bearer " + access_token },
+        }).then((res) => {
+          if (res.status === 404) {
+            window.alert("OPEN SPOTIFY and refresh page");
+          }
+        });
+      }
 
-    //play a single track
-    if (review.reviewType === "Track") {
-      setPlaying(playId);
-      fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device}`, {
-        method: "PUT",
-        body: JSON.stringify({ uris: [playObject] }),
-        headers: {
-          Authorization: "Bearer " + access_token,
-        },
-      }).then((res) => {
-        if (res.status === 404) {
-          window.alert("OPEN SPOTIFY and refresh page");
-        }
-      });
-    }
-    //play an artist's track from their album
-    if (review.reviewType === "Artist") {
-      fetch(
-        `https://api.spotify.com/v1/artists/${review.itemId}/albums?include_groups=album,single&market=${country}`,
-        { headers: { Authorization: "Bearer " + access_token } }
-      )
-        .then((fetch_response) => fetch_response.json())
-        .then((arr) => {
-          return fetch(`https://api.spotify.com/v1/albums/${arr.items[0].id}`, {
-            headers: { Authorization: "Bearer " + access_token },
-          })
-            .then((fetch_response) => fetch_response.json())
-            .then((album) => {
-              setPlaying(album.tracks.items[0].id);
-              return fetch(
-                `https://api.spotify.com/v1/me/player/play?device_id=${device}`,
-                {
-                  method: "PUT",
-                  body: JSON.stringify({
-                    context_uri: album.uri,
-                    offset: { uri: album.tracks.items[0].uri },
-                  }),
-                  headers: { Authorization: "Bearer " + access_token },
-                }
-              );
-            })
-            .then((res) => {
-              if (res.status === 404) {
-                window.alert("OPEN SPOTIFY and refresh page");
+      //play a single track
+      if (review.reviewType === "Track") {
+        setPlaying(playId);
+        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device}`, {
+          method: "PUT",
+          body: JSON.stringify({ uris: [playObject] }),
+          headers: {
+            Authorization: "Bearer " + access_token,
+          },
+        }).then((res) => {
+          if (res.status === 404) {
+            window.alert("OPEN SPOTIFY and refresh page");
+          }
+        });
+      }
+      //play an artist's track from their album
+      if (review.reviewType === "Artist") {
+        fetch(
+          `https://api.spotify.com/v1/artists/${review.itemId}/albums?include_groups=album,single&market=${country}`,
+          { headers: { Authorization: "Bearer " + access_token } }
+        )
+          .then((fetch_response) => fetch_response.json())
+          .then((arr) => {
+            return fetch(
+              `https://api.spotify.com/v1/albums/${arr.items[0].id}`,
+              {
+                headers: { Authorization: "Bearer " + access_token },
               }
-            });
-        })
-        .catch((err) => console.log(err));
-    }
+            )
+              .then((fetch_response) => fetch_response.json())
+              .then((album) => {
+                setPlaying(album.tracks.items[0].id);
+                return fetch(
+                  `https://api.spotify.com/v1/me/player/play?device_id=${device}`,
+                  {
+                    method: "PUT",
+                    body: JSON.stringify({
+                      context_uri: album.uri,
+                      offset: { uri: album.tracks.items[0].uri },
+                    }),
+                    headers: { Authorization: "Bearer " + access_token },
+                  }
+                );
+              })
+              .then((res) => {
+                if (res.status === 404) {
+                  window.alert("OPEN SPOTIFY and refresh page");
+                }
+              });
+          })
+          .catch((err) => console.log(err));
+      }
 
-    //play an album
-    if (review.reviewType === "Album") {
-      setPlaying(album.tracks.items[0].id);
-      fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          context_uri: album.uri,
-          offset: { uri: album.tracks.items[0].uri },
-        }),
-        headers: { Authorization: "Bearer " + access_token },
-      }).then((res) => {
-        if (res.status === 404) {
-          window.alert("OPEN SPOTIFY and refresh page");
-        }
-      });
-    }
+      //play an album
+      if (review.reviewType === "Album") {
+        setPlaying(album.tracks.items[0].id);
+        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device}`, {
+          method: "PUT",
+          body: JSON.stringify({
+            context_uri: album.uri,
+            offset: { uri: album.tracks.items[0].uri },
+          }),
+          headers: { Authorization: "Bearer " + access_token },
+        }).then((res) => {
+          if (res.status === 404) {
+            window.alert("OPEN SPOTIFY and refresh page");
+          }
+        });
+      }
+    } else window.alert("UPGRADE TO PREMIUM TO PLAY MUSIC");
   };
   const handleDelete = () => {
     console.log(review._id);

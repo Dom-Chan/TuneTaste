@@ -22,13 +22,43 @@ function useWindowSize() {
 
 function App() {
   const accesstoken = authenticate();
-  const { setAccessToken, playing } = useProps();
-  const [media, setMedia] = useState("");
+  const { setAccessToken, playing, access_token, setUser, setUserID, setCountry, setSubscription, setDevice, subscription } = useProps();
   const [width, height] = useWindowSize();
 
   useEffect(() => {
     setAccessToken(accesstoken);
   }, [accesstoken]);
+
+  useEffect(() => {
+    if (access_token) {
+      fetch("https://api.spotify.com/v1/me", {
+        headers: {
+          Authorization: "Bearer " + access_token,
+        },
+      })
+        .then((fetch_response) => fetch_response.json())
+        .then((user_profile) => {
+          setUserID(user_profile.id)
+          setUser(user_profile.display_name);
+          setCountry(user_profile.country);
+          setSubscription(user_profile.product);
+          console.log(user_profile)
+        })
+        .catch((err) => console.log(err));
+
+      fetch(`https://api.spotify.com/v1/me/player/devices`, {
+        headers: {
+          Authorization: "Bearer " + access_token,
+        },
+      })
+        .then((fetch_response) => fetch_response.json())
+        .then((devices) => {
+          if (devices.devices.length > 0) {
+            setDevice(devices.devices[0].id);
+          }
+        });
+    }
+  }, [access_token]);
 
   return (
     <div className="container">
@@ -36,7 +66,7 @@ function App() {
       <div className="page">
         {width > 600 && <SidePanel />}
         <ContentPanel />
-        {width > 1200 && playing && <PlayerPanel />}
+        {(width > 1200 && playing && subscription === "premium") && <PlayerPanel />}
       </div>
     </div>
   );
