@@ -10,9 +10,15 @@
 }
 
 .default_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  color: white;
   height: 250px;
   width: 250px;
-  background-color: aliceblue;
+  margin-right: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .playlist_img {
@@ -79,47 +85,51 @@
   margin-bottom: 10px;
 }
 
-
 @media (max-width: 768px) {
   .playlist {
     display: flex;
     flex-direction: column;
     padding-top: 25px;
   }
-  
+
   .playlist_header {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
   }
-  
+
   .default_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
     height: 150px;
     width: 150px;
-    background-color: aliceblue;
+    margin-right: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
-  
+
   .playlist_img {
     height: 150px;
     width: 150px;
     margin-right: 15px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
-  
+
   .playlist_header_text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
   }
-  
+
   .type {
     font-weight: bold;
     color: white;
     margin-bottom: 0px;
   }
-  
+
   .playlist_title {
     color: white;
     font-size: 50px;
@@ -135,40 +145,45 @@
     flex-direction: column;
     padding-top: 25px;
   }
-  
+
   .playlist_header {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
   }
-  
+
   .default_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
     height: 100px;
     width: 100px;
-    background-color: aliceblue;
+    margin-right: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
-  
+
   .playlist_img {
     height: 100px;
     width: 100px;
     margin-right: 15px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
-  
+
   .playlist_header_text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
   }
-  
+
   .type {
     font-weight: bold;
     color: white;
     margin-bottom: 0px;
   }
-  
+
   .playlist_title {
     color: white;
     font-size: 30px;

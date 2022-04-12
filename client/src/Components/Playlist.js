@@ -5,6 +5,7 @@ import styles from "../Styles/Playlist.module.css";
 import Track from "./Track";
 import ReviewButton from "./ReviewButton";
 import ReviewModal from "./ReviewModal";
+import { IoMusicalNotesSharp } from "react-icons/io5";
 
 export default function Playlist() { 
   const [playlist_tracks, setPlaylistTracks] = useState([]);
@@ -67,7 +68,7 @@ export default function Playlist() {
         ) : playlist.images === undefined ? (
           null
         ) : (
-          <div className={styles.default_img}></div>
+          <div className={styles.default_img}><IoMusicalNotesSharp /></div>
         )}
 
         <div className={styles.playlist_header_text}>

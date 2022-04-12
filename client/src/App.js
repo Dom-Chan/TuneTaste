@@ -42,7 +42,6 @@ function App() {
           setUser(user_profile.display_name);
           setCountry(user_profile.country);
           setSubscription(user_profile.product);
-          console.log(user_profile)
         })
         .catch((err) => console.log(err));
 

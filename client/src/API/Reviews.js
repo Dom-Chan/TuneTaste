@@ -54,7 +54,6 @@ export const editReview = ({
 };
 
 export const deleteReview = ({ _id }) => {
-  console.log(_id);
   fetch(`http://localhost:5000/posts/reviews/delete/${_id}`, {
     method: "DELETE",
   }).then((fetch_response) => console.log(fetch_response));

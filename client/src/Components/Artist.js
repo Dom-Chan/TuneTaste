@@ -5,6 +5,7 @@ import styles from "../Styles/Playlist.module.css";
 import Track from "./Track";
 import ReviewButton from "./ReviewButton";
 import ReviewModal from "./ReviewModal";
+import { BsFillPersonFill } from "react-icons/bs";
 
 export default function Artist() {
   const [artist, setArtist] = useState([]);
@@ -64,7 +65,7 @@ export default function Artist() {
         ) : artist.images === undefined ? (
           null
         ) : (
-          <div className={styles.default_img}></div>
+          <div className={styles.default_img}><BsFillPersonFill /></div>
         )}
 
         <div className={styles.playlist_header_text}>

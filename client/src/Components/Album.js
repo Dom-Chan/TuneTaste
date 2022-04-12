@@ -5,6 +5,7 @@ import styles from "../Styles/Playlist.module.css";
 import Track from "./Track";
 import ReviewButton from "./ReviewButton";
 import ReviewModal from "./ReviewModal";
+import { MdAlbum } from "react-icons/md";
 
 export default function Album() {
   const [album, setAlbum] = useState([]);
@@ -50,7 +51,7 @@ export default function Album() {
         ) : album.images === undefined ? (
           null
         ) : (
-          <div className={styles.default_img}></div>
+          <div className={styles.default_img}><MdAlbum /></div>
         )}
 
         <div className={styles.playlist_header_text}>

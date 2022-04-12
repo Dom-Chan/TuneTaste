@@ -60,7 +60,6 @@ export default function Authenticate() {
           .then((new_tokens) => {
             setAccessToken(new_tokens.access_token);
             setExpiresIn(new_tokens.expires_in);
-            //console.log(new_tokens.access_token);
           })
           .catch((err) => console.log(err));
         return () => clearInterval(interval);
