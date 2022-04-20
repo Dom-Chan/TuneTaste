@@ -20,6 +20,8 @@ function SidePanel() {
     setDevice,
   } = useProps();
   const linkStyle = { textDecoration: "none" };
+  const powered_text = "Powered \n by"
+  const api_text = "API"
 
   useEffect(() => {
     if (access_token) {
@@ -77,7 +79,9 @@ function SidePanel() {
 
       <div className={styles.logo_div}>
         <img src={logo2} className={styles.logo2}></img>
+        <p className={styles.powered}>{powered_text}</p>
         <img src={logo} className={styles.logo}></img>
+        <p className={styles.powered}>{api_text}</p>
       </div>
     </div>
   );

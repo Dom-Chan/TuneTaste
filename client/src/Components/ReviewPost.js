@@ -3,8 +3,14 @@ import useProps from "../Context/PropContex";
 import styles from "../Styles/Reviewpost.module.css";
 import ReviewButton from "./ReviewButton";
 import ReviewModal from "./ReviewModal";
+import { formatDistanceToNow, format } from "date-fns";
 import { deleteReview } from "../API/Reviews";
-import {play_track,play_playlist,play_artist,play_album,} from "../API/Play";
+import {
+  play_track,
+  play_playlist,
+  play_artist,
+  play_album,
+} from "../API/Play";
 import logo from "../Images/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Green.png";
 import { IoMusicalNotesSharp } from "react-icons/io5";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -31,10 +37,14 @@ function ReviewPost({ review }) {
   const [showModal, setShowModal] = useState(false);
   const [updatedPost, setUpdatedPost] = useState([]);
   const [deletedPost, setDeletedPost] = useState(false);
+  const [timestamp, setTimeStamp] = useState("");
   const type1 = "PLAYLIST";
   const type2 = "ARTIST";
 
   useEffect(() => {
+    console.log(review.createdAt)
+    //console.log(format(new Date(review.createdAt), "MMMM d K:m"))
+    setTimeStamp(formatDistanceToNow(new Date(review.createdAt)));
     fetch(`https://api.spotify.com/v1/users/${review.creator_id}`, {
       headers: {
         Authorization: "Bearer " + access_token,
@@ -115,7 +125,12 @@ function ReviewPost({ review }) {
       }
       //play an artist's track from their album
       if (review.reviewType === "Artist") {
-        const artist_track_id = await play_artist({device,review,country,access_token,});
+        const artist_track_id = await play_artist({
+          device,
+          review,
+          country,
+          access_token,
+        });
         setPlaying(artist_track_id);
       }
 
@@ -190,10 +205,13 @@ function ReviewPost({ review }) {
             {updatedPost.length > 0 ? updatedPost : review.review}
           </p>
 
-          <p className={styles.name}>
+          <div className={styles.user_time}>
             <img src={userPhoto} className={styles.userphoto}></img>
-            {review.creator}
-          </p>
+            <div className={styles.user_text}>
+              <p className={styles.name}>{review.creator}</p>
+              <p className={styles.timestamp}>{timestamp} ago</p>
+            </div>
+          </div>
           {isNavlinkActive_value === "Reviews" && (
             <ReviewButton button_value="Review" openModal={openModal} />
           )}

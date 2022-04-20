@@ -39,7 +39,7 @@ export default function Album() {
   }, [access_token, id]);
 
   return (
-    <div>
+    <div className={styles.playlist}>
         
       <div className={styles.playlist_header}>
         {album.images !== undefined && album.images.length > 0 ? (

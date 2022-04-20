@@ -20,7 +20,7 @@ function ReviewButton({ button_value, openModal }) {
       )}
 
       {button_value === "Review" && <p className={styles.text}>Edit </p>}
-      <BsPencilSquare />
+      <BsPencilSquare title="Review this track"/>
     </div>
   );
 }

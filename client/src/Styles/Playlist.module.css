@@ -1,7 +1,14 @@
 .playlist {
   display: flex;
   flex-direction: column;
+  width: 100%;
   padding-top: 25px;
+}
+
+.pagecontainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .playlist_header {

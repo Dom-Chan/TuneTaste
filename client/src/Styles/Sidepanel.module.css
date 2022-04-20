@@ -90,3 +90,10 @@
   
 }
 
+.powered {
+  color: rgb(166, 164, 164);
+  white-space: pre-line;
+  font-size: 11px;
+  text-align: center;
+}
+

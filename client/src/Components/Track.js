@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../Styles/Track.module.css";
 import ReviewButton from "./ReviewButton";
 import ReviewModal from "./ReviewModal";
+import PlayButton from "./PlayButton";
 import { useEffect, useState } from "react";
 import useProps from "../Context/PropContex";
 
@@ -59,8 +60,7 @@ export default function Track({ item, id, type, albumImg }) {
           window.alert("OPEN SPOTIFY");
         }
       });
-    }
-    else window.alert("UPGRADE TO PREMIUM TO PLAY MUSIC");
+    } else window.alert("UPGRADE TO PREMIUM TO PLAY MUSIC");
   };
 
   return (
@@ -88,9 +88,12 @@ export default function Track({ item, id, type, albumImg }) {
       )}
 
       <ReviewButton
-        className={styles.review_button}
         button_value="Track"
         openModal={openModal}
+      />
+
+      <PlayButton
+        play={play}
       />
 
       {showModal && (

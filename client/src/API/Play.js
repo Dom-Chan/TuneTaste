@@ -56,24 +56,27 @@ export const play_artist = async ({
         }),
         headers: { Authorization: "Bearer " + access_token },
       }
-    )
-    return album.tracks.items[0].id
+    );
+    if (album_track.status === 404) {
+      window.alert("OPEN SPOTIFY and refresh page");
+    }
+    return album.tracks.items[0].id;
   } catch (error) {
-    console.log(error);
+    window.alert("OPEN SPOTIFY and refresh page");
   }
 };
 
-export const play_album = ({device, album, access_token}) => {
+export const play_album = ({ device, album, access_token }) => {
   fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device}`, {
-          method: "PUT",
-          body: JSON.stringify({
-            context_uri: album.uri,
-            offset: { uri: album.tracks.items[0].uri },
-          }),
-          headers: { Authorization: "Bearer " + access_token },
-        }).then((res) => {
-          if (res.status === 404) {
-            window.alert("OPEN SPOTIFY and refresh page");
-          }
-        });
-}
+    method: "PUT",
+    body: JSON.stringify({
+      context_uri: album.uri,
+      offset: { uri: album.tracks.items[0].uri },
+    }),
+    headers: { Authorization: "Bearer " + access_token },
+  }).then((res) => {
+    if (res.status === 404) {
+      window.alert("OPEN SPOTIFY and refresh page");
+    }
+  });
+};

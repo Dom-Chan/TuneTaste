@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import styles from "../Styles/Reviewmodal.module.css";
 import logo from "../Images/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_White.png";
 import { ImCancelCircle } from "react-icons/im";
-import { BsCheckCircle } from "react-icons/bs";
 import { createReview, editReview } from "../API/Reviews";
 import useProps from "../Context/PropContex";
 
@@ -18,6 +17,7 @@ function ReviewModal({
   setUpdatedPost,
 }) {
   const [reviewString, setReviewString] = useState("");
+  const [sendPost, setSendPost] = useState(false)
   const { user, userID } = useProps();
 
   const sendReview = () => {
@@ -28,7 +28,10 @@ function ReviewModal({
     const itemId = id;
     const _id = ObjectId;
     const user_id = userID
-    setShowModal(false);
+    setSendPost(true)
+    setTimeout(() => {
+      setShowModal(false);
+    }, 200)
     if (modalFunction === "updateReview") {
       editReview({ itemTitle, creator, review, reviewType, itemId, _id, user_id });
       setUpdatedPost([review]);
@@ -38,7 +41,7 @@ function ReviewModal({
   return (
     <>
       <div
-        className={styles.background}
+        className={sendPost ? styles.sentBackground : styles.background}
         onClick={() => setShowModal(false)}
       ></div>
       <div className={styles.modal}>

@@ -55,6 +55,7 @@ img {
   background: rgb(11, 10, 10);
   color: rgb(49, 45, 45);
   margin: 0;
+  margin-right: 30px;
   align-items: center;
   justify-content: center;
   border-radius: 3px;
@@ -74,6 +75,7 @@ img {
   align-items: center;
   border-radius: 3px;
   transition: all 0.2s ease-in-out;
+  margin-right: 22px;
   font-weight: 500;
   transform: scale(1.1);
   cursor: pointer;

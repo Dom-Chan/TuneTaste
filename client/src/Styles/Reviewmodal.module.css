@@ -13,6 +13,21 @@
   align-items: center;
 }
 
+.sentBackground {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(75, 145, 125, 0.316);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .modal {
   display: flex;
   flex-direction: column;

@@ -53,8 +53,7 @@ export default function Artist() {
   }, [access_token, id]);
 
   return (
-    <div>
-       
+    <div className={styles.playlist}>
       <div className={styles.playlist_header}>
         {artist.images !== undefined && artist.images.length > 0 ? (
           <img

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import authenticate from "./API/Authenticate";
 import "./App.css";
 import SidePanel from "./Components/SidePanel";
@@ -22,8 +23,9 @@ function useWindowSize() {
 
 function App() {
   const accesstoken = authenticate();
-  const { setAccessToken, playing, access_token, setUser, setUserID, setCountry, setSubscription, setDevice, subscription } = useProps();
+  const { setAccessToken, playing, access_token, setUser, setUserID, setCountry, setSubscription, setDevice, subscription, device } = useProps();
   const [width, height] = useWindowSize();
+  const navigate = useNavigate()
 
   useEffect(() => {
     setAccessToken(accesstoken);
@@ -62,11 +64,11 @@ function App() {
   return (
     <div className="container">
       {width < 600 && <TopPanel />}
-      <div className="page">
+     {accesstoken && <div className="page">
         {width > 600 && <SidePanel />}
         <ContentPanel />
-        {(width > 1200 && playing && subscription === "premium") && <PlayerPanel />}
-      </div>
+        {(width > 1200 && playing && subscription === "premium" && device) && <PlayerPanel />}
+      </div>}
     </div>
   );
 }
