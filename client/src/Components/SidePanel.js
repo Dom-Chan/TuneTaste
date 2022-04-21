@@ -6,6 +6,7 @@ import useProps from "../Context/PropContex";
 import { Link } from "react-router-dom";
 import logo from "../Images/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Green.png";
 import logo2 from "../Images/TuneTaste2.png";
+import generic from "../Images/generic.jpg";
 
 function SidePanel() {
   const [user_name, setUserName] = useState("");
@@ -20,8 +21,8 @@ function SidePanel() {
     setDevice,
   } = useProps();
   const linkStyle = { textDecoration: "none" };
-  const powered_text = "Powered \n by"
-  const api_text = "API"
+  const powered_text = "Powered \n by";
+  const api_text = "API";
 
   useEffect(() => {
     if (access_token) {
@@ -35,7 +36,11 @@ function SidePanel() {
           setUserID(user_profile.id);
           setUser(user_profile.display_name);
           setUserName(user_profile.display_name);
-          setUserImg(user_profile.images[0].url);
+          try {
+            setUserImg(user_profile.images[0].url);
+          } catch {
+            setUserImg(generic);
+          }
           setUserId(user_profile.id);
           setCountry(user_profile.country);
           setSubscription(user_profile.product);

@@ -12,7 +12,8 @@ function HomePanel() {
     const latestReviews = reviews.reverse();
     setAllReviews(latestReviews);
   };
-
+//https://tunetastemern.herokuapp.com
+//http://localhost:5000/posts
   useEffect(() => {
     setNavlinkActivelValue("None");
     fetch(`http://localhost:5000/posts`)

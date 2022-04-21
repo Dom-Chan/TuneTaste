@@ -7,7 +7,7 @@ export default function Authenticate() {
   const [refreshToken, setRefreshToken] = useState("");
   const [expiresIn, setExpiresIn] = useState("");
   const { device } = useProps()
-
+  
   useEffect(() => {
     fetch("http://localhost:5000/authorize")
       .then((response_url) => response_url.text())
@@ -63,12 +63,10 @@ export default function Authenticate() {
           })
           .catch((err) => console.log(err));
         return () => clearInterval(interval);
-      }, (expiresIn - 60) * 1000);
+      }, (expiresIn - 240) * 1000);
     }
   }, [refreshToken, expiresIn]);
 
   return accessToken;
 }
 
-//search example for reference
-//"https://api.spotify.com/v1/search?q=name:twice&type=album,artist,track"
