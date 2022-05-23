@@ -21,7 +21,7 @@ export const getUserReviews = async (req, res) => {
 
 export const createReview = async (req, res) => {
   //const { itemTitle, creator, review, reviewType, itemId } = req.params;
-  const { itemTitle, creator, review, reviewType, itemId, creator_id } = req.body;
+  const { itemTitle, creator, review, reviewType, itemId, creator_id, review_date } = req.body;
   console.log(req.body)
  
   const newReview = reviewModel({
@@ -30,7 +30,8 @@ export const createReview = async (req, res) => {
     review,
     reviewType,
     itemId,
-    creator_id
+    creator_id,
+    review_date
   });
 
   try {

@@ -11,7 +11,7 @@ const reviewSchema = mongoose.Schema({
         type: Date,
         default: new Date()
     },
-
+    review_date: Date
 })
 
 const ReviewModel = mongoose.model('ReviewModel', reviewSchema)

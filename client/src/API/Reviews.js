@@ -6,6 +6,8 @@ export const createReview = ({
   itemId,
   user_id
 }) => {
+  const revDate = new Date()
+  console.log(revDate)
   fetch(
     `http://localhost:5000/posts/${itemId}`,
     {
@@ -16,13 +18,14 @@ export const createReview = ({
         review: review,
         reviewType: reviewType,
         itemId: itemId,
-        creator_id: user_id
+        creator_id: user_id,
+        review_date: revDate
       }),
       headers: {
         "Content-Type": "application/json",
       },
     }
-  ).then((fetch_response) => console.log(fetch_response));
+  ).catch(error => console.log(error))
 };
 
 export const editReview = ({
@@ -50,11 +53,11 @@ export const editReview = ({
         "Content-Type": "application/json",
       }
     }
-  ).then((fetch_response) => console.log(fetch_response));
+  ).catch(error => console.log(error))
 };
 
 export const deleteReview = ({ _id }) => {
   fetch(`http://localhost:5000/posts/reviews/delete/${_id}`, {
     method: "DELETE",
-  }).then((fetch_response) => console.log(fetch_response));
+  }).catch(error => console.log(error))
 };

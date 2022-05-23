@@ -42,9 +42,8 @@ function ReviewPost({ review }) {
   const type2 = "ARTIST";
 
   useEffect(() => {
-    console.log(review.createdAt)
     //console.log(format(new Date(review.createdAt), "MMMM d K:m"))
-    setTimeStamp(formatDistanceToNow(new Date(review.createdAt)));
+    setTimeStamp(formatDistanceToNow(new Date(review.review_date)));
     fetch(`https://api.spotify.com/v1/users/${review.creator_id}`, {
       headers: {
         Authorization: "Bearer " + access_token,

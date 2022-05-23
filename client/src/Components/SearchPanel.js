@@ -34,6 +34,7 @@ function SearchPanel() {
         setArtists(art_arr);
         setPlaylists(search.playlists);
         setTracks(search.tracks);
+        console.log(search)
       });
 
     return () => {
@@ -60,9 +61,9 @@ function SearchPanel() {
             ))}
         </div>
         <div className={styles.artist_results}>
-          {artists.length > 0 && <p className={styles.artist_tag}>ARTISTS</p>}
+          {artists.total > 0 && <p className={styles.artist_tag}>ARTISTS</p>}
           <div className={styles.artist2_results}>
-            {artists !== undefined &&
+            {artists.id !== undefined &&
               artists.map((artist) => (
                 <Link
                   to={`artist/${artist.id}`}
@@ -75,7 +76,7 @@ function SearchPanel() {
           </div>
         </div>
         <div className={styles.playlist_results}>
-          {(playlists.items !== undefined && playlists.items.length) > 0 && (
+          {(playlists.items !== undefined && playlists.items.length > 0) && (
             <p className={styles.artist_tag}>PLAYLISTS</p>
           )}
           <div className={styles.artist2_results}>
@@ -92,7 +93,7 @@ function SearchPanel() {
           </div>
         </div>
         <div className={styles.playlist_results}>
-          {(albums.items !== undefined && albums.items.length) > 0 && (
+          {(albums.items !== undefined && albums.items.length > 0) && (
             <p className={styles.artist_tag}>ALBUMS</p>
           )}
           <div className={styles.artist2_results}>
